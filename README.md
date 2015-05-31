@@ -1,9 +1,6 @@
 # ion-sticky
-**ion-sticky** is a lightweight Angular directive for Ionic framework to have sticky list headers
-
-Directive requires no additional dependencies. Just Ionic and Angular. 
-
-***Simple to use***
+***Super simple to use***
+Just add ion-sticky to ion-content, it will detect dividers and make the active one sticky.
 
 ## Demo
 
