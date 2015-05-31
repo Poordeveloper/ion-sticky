@@ -6,12 +6,13 @@ Just add ion-sticky to ion-content, it will detect dividers and make the active 
 ## Demo
 
 [http://codepen.io/Poordeveloper/pen/BNpxrm](http://codepen.io/Poordeveloper/pen/BNpxrm)
-
-## Usage
+## Install
 
 ```bash
 bower install ion-sticky --save
 ```
+
+## Usage
 
 ```javascript
 angular.module('ion-sticky-demo', ['ion-sticky']);
