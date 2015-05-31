@@ -1,0 +1,30 @@
+{
+  "name": "ion-sticky",
+  "version": "1.0.0",
+  "homepage": "https://github.com/poordeveloper/ion-sticky",
+  "authors": [
+    "zhouhuab <zhb12345@gmail.com>"
+  ],
+  "description": "Sticky ionic list item dividers for Ionic framework",
+  "main": "ion_sticky.js",
+  "keywords": [
+    "ionic",
+    "sticky",
+    "ion-sticky",
+    "ion-affix",
+    "item-divider",
+    "ion-list",
+    "ion-item"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "ionic": "driftyco/ionic-bower#1.0.0"
+  }
+}
