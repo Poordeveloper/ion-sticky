@@ -7,7 +7,7 @@ angular.module('ion-sticky', ['ionic'])
                 var scroll = angular.element($ionicScroll.element);
                 var clone;
                 // creates the sticky divider clone and adds it to DOM
-                var createAffixClone = function ($element) {
+                var createStickyClone = function ($element) {
                     clone = $element.clone().css({
                         position: 'absolute',
                         top: $ionicPosition.position(scroll).top + "px", // put to top
@@ -30,7 +30,7 @@ angular.module('ion-sticky', ['ionic'])
                     for (var i = 0; i < tmp.length; ++i) dividers.push(angular.element(tmp[i]));
                 });
 
-                var removeAffixClone = function ($divider) {
+                var removeStickyClone = function () {
                     if (clone) 
                         clone.remove();
                     clone = null;
@@ -38,7 +38,7 @@ angular.module('ion-sticky', ['ionic'])
 
                 $scope.$on("$destroy", function () {
                     // remove the clone and unbind the scroll listener
-                    removeAffixClone();
+                    removeStickyClone();
                     angular.element($ionicScroll.element).off('scroll');
                 });
 
@@ -57,10 +57,10 @@ angular.module('ion-sticky', ['ionic'])
                     }
     
                     if (lastActive != active) {
-                        removeAffixClone();
+                        removeStickyClone();
                         lastActive = active;
                         if (active != null)
-                            createAffixClone(dividers[active]);
+                            createStickyClone(dividers[active]);
                     }
                 });
             }
