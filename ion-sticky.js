@@ -36,13 +36,10 @@ angular.module('ion-sticky', ['ionic'])
                     angular.element($ionicScroll.element).off('scroll');
                 });
 
-                var dividers = [];
-
                 var lastActive;
                 var updateSticky = ionic.throttle(function() {
                     //console.log(performance.now());
                     var active = null;
-                    var scrollTop = $ionicScroll.element.scrollTop; 
                     var dividers = [];
                     var tmp = $element[0].getElementsByClassName("item-divider");
                     for (var i = 0; i < tmp.length; ++i) dividers.push(angular.element(tmp[i]));
