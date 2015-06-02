@@ -36,8 +36,11 @@ angular.module('ion-sticky', ['ionic'])
                     angular.element($ionicScroll.element).off('scroll');
                 });
 
+                var dividers = [];
+
                 var lastActive;
-                scroll.on('scroll', function (event) {
+                var updateSticky = ionic.throttle(function() {
+                    //console.log(performance.now());
                     var active = null;
                     var scrollTop = $ionicScroll.element.scrollTop; 
                     var dividers = [];
@@ -59,6 +62,10 @@ angular.module('ion-sticky', ['ionic'])
                         if (active != null)
                             createStickyClone(angular.element(active));
                     }
+                    //console.log(performance.now());
+                }, 200);
+                scroll.on('scroll', function (event) {
+                    updateSticky();
                 });
             }
         }
