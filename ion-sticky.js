@@ -23,13 +23,7 @@ angular.module('ion-sticky', ['ionic'])
                     // compile the clone so that anything in it is in Angular lifecycle.
                     $compile(clone)($scope);
                 };
-                
-                var dividers = [];
-                $timeout(function() { // wait for sub elements all added
-                    var tmp = $element[0].getElementsByClassName("item-divider");
-                    for (var i = 0; i < tmp.length; ++i) dividers.push(angular.element(tmp[i]));
-                });
-
+               
                 var removeStickyClone = function () {
                     if (clone) 
                         clone.remove();
@@ -45,12 +39,15 @@ angular.module('ion-sticky', ['ionic'])
                 var lastActive;
                 scroll.on('scroll', function (event) {
                     var active = null;
-                    var scrollTop = $ionicScroll.element.scrollTop;
+                    var scrollTop = $ionicScroll.element.scrollTop; 
+                    var dividers = [];
+                    var tmp = $element[0].getElementsByClassName("item-divider");
+                    for (var i = 0; i < tmp.length; ++i) dividers.push(angular.element(tmp[i]));
                     for (var i = 0; i < dividers.length; ++i) { // can be changed to binary search
                         if ($ionicPosition.offset(dividers[i]).top - dividers[i].prop('offsetHeight') < 0) { // this equals to jquery outerHeight
                             if (i === dividers.length-1 || $ionicPosition.offset(dividers[i+1]).top -
                                  (dividers[i].prop('offsetHeight') + dividers[i+1].prop('offsetHeight')) > 0) {
-                                active = i;
+                                active = dividers[i][0];
                                 break;
                             }
                         }
@@ -60,7 +57,7 @@ angular.module('ion-sticky', ['ionic'])
                         removeStickyClone();
                         lastActive = active;
                         if (active != null)
-                            createStickyClone(dividers[active]);
+                            createStickyClone(angular.element(active));
                     }
                 });
             }
