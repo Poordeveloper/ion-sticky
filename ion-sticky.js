@@ -16,7 +16,7 @@ angular.module('ion-sticky', ['ionic'])
                     });
                     clone[0].className += " assertive";
 
-                    clone.removeAttr('ng-repeat-start');
+                    clone.removeAttr('ng-repeat-start').removeAttr('ng-if');
 
                     scroll.parent().append(clone);
 
