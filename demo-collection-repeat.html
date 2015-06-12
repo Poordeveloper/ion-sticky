@@ -1,0 +1,54 @@
+<html ng-app="ion-sticky-demo">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+
+    <title>ion-sticky</title>
+
+    <link href="http://code.ionicframework.com/1.0.0/css/ionic.min.css" rel="stylesheet">
+    <script src="http://code.ionicframework.com/1.0.0/js/ionic.bundle.min.js"></script>
+
+    <script src="ion-sticky.js"></script>
+
+    <script>
+      var m = angular.module('ion-sticky-demo', ['ion-sticky']);
+      m.directive('dummy', function () { 
+        return {
+          restrict: 'E', 
+          replace: true,
+          template: ''
+        };   
+      });
+      m.controller('demoController', ["$scope", function ($scope) {
+        $scope.items = [];
+        var letters = "abcidefghijklmnopqrstuvwxyz";
+        for (var i in letters) {
+          $scope.items.push({letter: letters[i]});
+          for (var j = 1; j < 10; j++)
+            $scope.items.push({text: j});
+        }
+      }]);
+    </script>
+
+</head>
+
+<body>
+<ion-header-bar align-title="left" class="bar-positive">
+    <h1 class="title">ion-sticky demo</h1>
+</ion-header-bar>
+
+<ion-content ion-sticky ng-controller="demoController">
+    <ion-list>
+        <dummy collection-repeat="item in items track by $index"
+            collection-item-height="item.letter ? 36 : 52" collection-item-width="'100%'"> 
+            <ion-item class="positive item-divider" ng-if="item.letter">
+                {{item.letter}}
+            </ion-item>
+            <ion-item ng-if="item.text">
+                {{item.text}}
+            </ion-item>
+        </dummy>
+    </ion-list>
+</ion-content>
+</body>
+</html>
