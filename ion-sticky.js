@@ -6,6 +6,16 @@ angular.module('ion-sticky', ['ionic'])
             link: function ($scope, $element, $attr, $ionicScroll) {
                 var scroll = angular.element($ionicScroll.element);
                 var clone;
+                var cloneVal = function(original, to) {
+                    var my_textareas = original.getElementsByTagName('textarea');
+                    var result_textareas = to.getElementsByTagName('textarea');
+                    var my_selects = original.getElementsByTagName('select');
+                    var result_selects = to.getElementsByTagName('select');
+                    for (var i = 0, l = my_textareas.length; i < l; ++i) 
+                        result_textareas[i].value = my_textareas[i].value;
+                    for (var i = 0, l = my_selects.length; i < l; ++i) 
+                        result_selects[i].value = my_selects[i].value;
+                };
                 // creates the sticky divider clone and adds it to DOM
                 var createStickyClone = function ($element) {
                     clone = $element.clone().css({
@@ -14,6 +24,7 @@ angular.module('ion-sticky', ['ionic'])
                         left: 0,
                         right: 0
                     });
+                    cloneVal($element[0], clone[0])
                     clone[0].className += " assertive";
 
                     clone.removeAttr('ng-repeat-start').removeAttr('ng-if');
