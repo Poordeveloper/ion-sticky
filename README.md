@@ -31,6 +31,8 @@ angular.module('ion-sticky-demo', ['ion-sticky']);
 </ion-content>
 ```
 
+## collection-repeat
+
 If you are using collection-repeat, please refer to this gist.
 
 [https://gist.github.com/Poordeveloper/e6a1714ea399f95c779f](https://gist.github.com/Poordeveloper/e6a1714ea399f95c779f)
