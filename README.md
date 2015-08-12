@@ -1,7 +1,7 @@
 # ion-sticky
 ***Super simple to use***
 
-Just add ion-sticky to ion-content, it will detect dividers and make the active one sticky.
+Just add ion-sticky to ion-content, it will detect dividers and make the active one sticky. Not support collection-repeat.
 
 ## Demo
 
