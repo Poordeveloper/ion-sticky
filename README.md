@@ -1,7 +1,12 @@
 # ion-sticky
 ***Super simple to use***
 
-Just add ion-sticky to ion-content, it will detect dividers and make the active one sticky. Not support collection-repeat.
+Just add ion-sticky to ion-content, it will detect dividers and make the active one sticky. 
+
+If you are using collection-repeat, please refer to this gist.
+
+[https://gist.github.com/Poordeveloper/e6a1714ea399f95c779f](https://gist.github.com/Poordeveloper/e6a1714ea399f95c779f)
+
 
 ## Demo
 
@@ -30,9 +35,3 @@ angular.module('ion-sticky-demo', ['ion-sticky']);
     </ion-list>
 </ion-content>
 ```
-
-## collection-repeat
-
-If you are using collection-repeat, please refer to this gist.
-
-[https://gist.github.com/Poordeveloper/e6a1714ea399f95c779f](https://gist.github.com/Poordeveloper/e6a1714ea399f95c779f)
