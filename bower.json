@@ -6,7 +6,7 @@
     "zhouhuab <zhb12345@gmail.com>"
   ],
   "description": "a lightweight Angular directive for Ionic framework to have sticky list headers",
-  "main": "ion_sticky.js",
+  "main": "ion-sticky.js",
   "keywords": [
     "ionic",
     "sticky",
