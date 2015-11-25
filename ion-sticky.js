@@ -11,9 +11,9 @@ angular.module('ion-sticky', ['ionic'])
                     var result_textareas = to.getElementsByTagName('textarea');
                     var my_selects = original.getElementsByTagName('select');
                     var result_selects = to.getElementsByTagName('select');
-                    for (var i = 0, l = my_textareas.length; i < l; ++i) 
+                    for (var i = 0, l = my_textareas.length; i < l; ++i)
                         result_textareas[i].value = my_textareas[i].value;
-                    for (var i = 0, l = my_selects.length; i < l; ++i) 
+                    for (var i = 0, l = my_selects.length; i < l; ++i)
                         result_selects[i].value = my_selects[i].value;
                 };
                 // creates the sticky divider clone and adds it to DOM
@@ -24,8 +24,9 @@ angular.module('ion-sticky', ['ionic'])
                         left: 0,
                         right: 0
                     });
-                    cloneVal($element[0], clone[0])
-                    clone[0].className += " assertive";
+                    $attr.ionStickyClass = ($attr.ionStickyClass) ? $attr.ionStickyClass : 'assertive';
+                    cloneVal($element[0], clone[0]);
+                    clone[0].className += ' ' + $attr.ionStickyClass;
 
                     clone.removeAttr('ng-repeat-start').removeAttr('ng-if');
 
@@ -34,9 +35,9 @@ angular.module('ion-sticky', ['ionic'])
                     // compile the clone so that anything in it is in Angular lifecycle.
                     $compile(clone)($scope);
                 };
-               
+
                 var removeStickyClone = function () {
-                    if (clone) 
+                    if (clone)
                         clone.remove();
                     clone = null;
                 };
@@ -63,7 +64,7 @@ angular.module('ion-sticky', ['ionic'])
                             }
                         }
                     }
-    
+
                     if (lastActive != active) {
                         removeStickyClone();
                         lastActive = active;
