@@ -57,9 +57,9 @@ angular.module('ion-sticky', ['ionic'])
                     var tmp = $element[0].getElementsByClassName("item-divider");
                     for (var i = 0; i < tmp.length; ++i) dividers.push(angular.element(tmp[i]));
                     for (var i = 0; i < dividers.length; ++i) { // can be changed to binary search
-                        if ($ionicPosition.offset(dividers[i]).top - dividers[i].prop('offsetHeight') - minHeight < 0) { // this equals to jquery outerHeight
+                        if ($ionicPosition.offset(dividers[i]).top - $ionicPosition.offset($element).top - minHeight < 0) { // this equals to jquery outerHeight
                             if (i === dividers.length-1 || $ionicPosition.offset(dividers[i+1]).top -
-                                 (dividers[i].prop('offsetHeight') + dividers[i+1].prop('offsetHeight')) - minHeight > 0) {
+                                 ($ionicPosition.offset($element).top + dividers[i+1].prop('offsetHeight')) - minHeight > 0) {
                                 active = dividers[i][0];
                                 break;
                             }
