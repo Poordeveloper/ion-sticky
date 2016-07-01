@@ -1,6 +1,6 @@
 {
   "name": "ion-sticky",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "a lightweight Angular directive for Ionic framework to have sticky list headers",
   "main": "ion-sticky.js",
   "scripts": {
