@@ -36,7 +36,7 @@ angular.module('ion-sticky', ['ionic'])
                     $compile(clone)($scope);
                     $scope.$apply();
                 };
-
+								
                 var removeStickyClone = function () {
                     if (clone)
                         clone.remove();
@@ -50,17 +50,19 @@ angular.module('ion-sticky', ['ionic'])
                 });
 
                 var lastActive;
-                var minHeight = $attr.minHeight ? $attr.minHeight : 0;
                 var updateSticky = ionic.throttle(function() {
+                var divHeight = $ionicPosition.offset($element[0].getElementsByClassName("item-divider")).height;
                     //console.log(performance.now());
                     var active = null;
                     var dividers = [];
                     var tmp = $element[0].getElementsByClassName("item-divider");
-                    for (var i = 0; i < tmp.length; ++i) dividers.push(angular.element(tmp[i]));
+                    for (var i = 0; i < tmp.length; ++i) { 
+											  dividers.push(angular.element(tmp[i]));
+										}
                     for (var i = 0; i < dividers.length; ++i) { // can be changed to binary search
-                        if ($ionicPosition.offset(dividers[i]).top - $ionicPosition.offset($element).top - minHeight < 0) { // this equals to jquery outerHeight
+                        if ($ionicPosition.offset(dividers[i]).top - $ionicPosition.offset($element).top - divHeight < 0) { // this equals to jquery outerHeight
                             if (i === dividers.length-1 || $ionicPosition.offset(dividers[i+1]).top -
-                                 ($ionicPosition.offset($element).top + dividers[i+1].prop('offsetHeight')) - minHeight > 0) {
+                                 ($ionicPosition.offset($element).top + dividers[i+1].prop('offsetHeight')) + divHeight > 0) { //when clone covers new header
                                 active = dividers[i][0];
                                 break;
                             }
