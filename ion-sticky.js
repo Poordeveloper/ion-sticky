@@ -68,6 +68,10 @@ angular.module('ion-sticky', ['ionic'])
                             }
                         }
                     }
+                    // ion-refresher on-refresh remove sticky item
+                    if ($ionicPosition.offset(dividers[0]).top > $ionicPosition.offset($element).top){
+                        removeStickyClone();
+                    }
 
                     if (lastActive != active) {
                         removeStickyClone();
