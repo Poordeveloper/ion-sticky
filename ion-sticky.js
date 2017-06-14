@@ -51,11 +51,11 @@ angular.module('ion-sticky', ['ionic'])
 
                 var lastActive;
                 var updateSticky = ionic.throttle(function() {
-                var divHeight = $ionicPosition.offset($element[0].getElementsByClassName("item-divider")).height;
+                var divHeight = $ionicPosition.offset($element[0].getElementsByClassName($attr.ionSticky || "item-divider")).height;
                     //console.log(performance.now());
                     var active = null;
                     var dividers = [];
-                    var tmp = $element[0].getElementsByClassName("item-divider");
+                    var tmp = $element[0].getElementsByClassName($attr.ionSticky || "item-divider");
                     for (var i = 0; i < tmp.length; ++i) { 
 											  dividers.push(angular.element(tmp[i]));
 										}
